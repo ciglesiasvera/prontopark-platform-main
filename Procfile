@@ -1,0 +1,1 @@
+web: gunicorn pronto_park.wsgi
