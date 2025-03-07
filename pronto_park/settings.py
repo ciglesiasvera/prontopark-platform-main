@@ -15,11 +15,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+#DEBUG = True
 
 #ALLOWED_HOSTS = os.getenv('prontopark-platform-main.onrender.com','DJANGO_ALLOWED_HOSTS', '').split(',')
-ALLOWED_HOSTS = ['prontopark-platform-main.onrender.com','127.0.0.1']
+#ALLOWED_HOSTS = ['prontopark-platform-main.onrender.com','127.0.0.1']
 
+# Asegúrate de que DEBUG esté desactivado en producción:
+DEBUG = os.environ.get("DEBUG", "False") == "True"
+
+# Configura ALLOWED_HOSTS correctamente:
+ALLOWED_HOSTS = ["prontopark-platform-main.onrender.com"]
 
 # Application definition
 
@@ -80,7 +85,14 @@ WSGI_APPLICATION = "pronto_park.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+import dj_database_url
+
+# Reemplaza tu configuración actual de DATABASES con esto:
 DATABASES = {
+    "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
+}
+
+""" DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": os.getenv("DB_NAME"),
@@ -89,7 +101,7 @@ DATABASES = {
         "HOST": os.getenv("DB_HOST"),
         "PORT": os.getenv("DB_PORT"),
     }
-}
+} """
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
