@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Cancelar Reserva</h2>
+    <p>¿Estás seguro de que deseas cancelar la reserva del estacionamiento número {{ reservation.parking.number }}?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Confirmar cancelación</button>
+        <a href="{% url 'reservations:list' %}" class="btn btn-secondary">No cancelar</a>
+    </form>
+{% endblock %}

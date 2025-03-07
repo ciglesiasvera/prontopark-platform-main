@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Crear Residencia</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Crear</button>
+        <a href="{% url 'residences:residence_list' %}"
+           class="btn btn-secondary">Cancelar</a>
+    </form>
+{% endblock %}

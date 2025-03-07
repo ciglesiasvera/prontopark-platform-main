@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Detalles del Reporte</h1>
+<p>Tipo de Reporte: {{ report.report_type }}</p>
+<p>Fecha de Inicio: {{ report.start_date }}</p>
+<p>Fecha de Fin: {{ report.end_date }}</p>
+<a href="{% url 'reports:list' %}" class="btn btn-secondary">Volver a la Lista</a>
+{% endblock %}

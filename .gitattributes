@@ -1,0 +1,18 @@
+# Normalize all text files to LF on commit
+* text=auto
+
+# Force LF for specific file types
+*.sh text eol=lf
+*.yml text eol=lf
+
+# Force CRLF for specific file types
+*.bat text eol=crlf
+
+# Leave binary files unchanged
+*.jpg binary
+*.png binary
+*.webp binary
+*.gif binary
+*.exe binary
+*.zip binary
+*.dat binary

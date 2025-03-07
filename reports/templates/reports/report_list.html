@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Lista de Reportes</h1>
+<ul>
+    {% for report in reports %}
+        <li>
+            <a href="{% url 'reports:detail' report.id %}">{{ report.report_type }}</a>
+            - {{ report.start_date }} a {{ report.end_date }}
+        </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'reports:create' %}" class="btn btn-primary">Crear Reporte</a>
+{% endblock %}

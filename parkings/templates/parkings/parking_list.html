@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Lista de Estacionamientos</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Número</th>
+                <th scope="col">Lote</th>
+                <th scope="col"></th>
+                {% if user.role == 'supervisor' or user.role == 'admin' or user.role == 'concierge' %}
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for parking in parkings %}
+                <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{ parking.number }}</td>
+                    <td>{{ parking.lot }}</td>
+                    <td>
+                        <a href="{% url 'parkings:parking_detail' parking.id %}"
+                           class="btn btn-warning">Detalle</a>
+                    </td>
+                    {% if user.role == 'supervisor' or user.role == 'admin' or user.role == 'concierge' %}
+                        <td>
+                            <a href="{% url 'parkings:parking_edit' parking.id %}"
+                               class="btn btn-warning">Editar</a>
+                        </td>
+                        <td>
+                            <a href="{% url 'parkings:parking_delete' parking.id %}"
+                               class="btn btn-danger">Eliminar</a>
+                        </td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

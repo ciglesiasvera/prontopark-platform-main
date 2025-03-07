@@ -1,0 +1,203 @@
+[
+	{
+		"model": "users.user",
+		"pk": 1,
+		"fields": {
+			"email": "supervisor@example.com",
+			"phone": "1234567890",
+			"role": "supervisor",
+			"rut": "12345678",
+			"rut_dv": "9",
+			"first_name": "Mario",
+			"last_name": "Bros",
+			"is_active": true,
+			"is_staff": true,
+			"password": "pbkdf2_sha256$870000$JS24t12X8Fam5deAVgdpMn$gaUX0Y1VI1V4NYmly7Zv2DL9KoKq2A+4aOatZVH7nL8="
+		}
+	},
+	{
+		"model": "users.user",
+		"pk": 2,
+		"fields": {
+			"email": "admin@example.com",
+			"phone": "1234567891",
+			"role": "admin",
+			"rut": "12345679",
+			"rut_dv": "8",
+			"first_name": "Luigi",
+			"last_name": "Bros",
+			"is_active": true,
+			"is_staff": true,
+			"password": "pbkdf2_sha256$870000$JS24t12X8Fam5deAVgdpMn$gaUX0Y1VI1V4NYmly7Zv2DL9KoKq2A+4aOatZVH7nL8="
+		}
+	},
+	{
+		"model": "users.user",
+		"pk": 3,
+		"fields": {
+			"email": "concierge@example.com",
+			"phone": "1234567892",
+			"role": "concierge",
+			"rut": "12345680",
+			"rut_dv": "7",
+			"first_name": "Teresa",
+			"last_name": "Paneque",
+			"is_active": true,
+			"is_staff": false,
+			"password": "pbkdf2_sha256$870000$JS24t12X8Fam5deAVgdpMn$gaUX0Y1VI1V4NYmly7Zv2DL9KoKq2A+4aOatZVH7nL8="
+		}
+	},
+	{
+		"model": "users.user",
+		"pk": 4,
+		"fields": {
+			"email": "parking_owner@example.com",
+			"phone": "1234567893",
+			"role": "parking_owner",
+			"rut": "12345681",
+			"rut_dv": "6",
+			"first_name": "Humberto",
+			"last_name": "Maturana",
+			"is_active": true,
+			"is_staff": false,
+			"password": "pbkdf2_sha256$870000$JS24t12X8Fam5deAVgdpMn$gaUX0Y1VI1V4NYmly7Zv2DL9KoKq2A+4aOatZVH7nL8="
+		}
+	},
+	{
+		"model": "users.user",
+		"pk": 5,
+		"fields": {
+			"email": "resident@example.com",
+			"phone": "1234567894",
+			"role": "resident",
+			"rut": "12345682",
+			"rut_dv": "5",
+			"first_name": "Chihiro",
+			"last_name": "Ogino",
+			"is_active": true,
+			"is_staff": false,
+			"password": "pbkdf2_sha256$870000$JS24t12X8Fam5deAVgdpMn$gaUX0Y1VI1V4NYmly7Zv2DL9KoKq2A+4aOatZVH7nL8="
+		}
+	},
+	{
+		"model": "users.user",
+		"pk": 6,
+		"fields": {
+			"email": "visit@example.com",
+			"phone": "1234567895",
+			"role": "visit",
+			"rut": "12345683",
+			"rut_dv": "4",
+			"first_name": "Gabriela",
+			"last_name": "Mistral",
+			"is_active": true,
+			"is_staff": false,
+			"password": "pbkdf2_sha256$870000$JS24t12X8Fam5deAVgdpMn$gaUX0Y1VI1V4NYmly7Zv2DL9KoKq2A+4aOatZVH7nL8="
+		}
+	},
+	{
+		"model": "users.user",
+		"pk": 7,
+		"fields": {
+			"email": "parking_owner_2@example.com",
+			"phone": "1234567896",
+			"role": "parking_owner",
+			"rut": "12345684",
+			"rut_dv": "3",
+			"first_name": "Lara",
+			"last_name": "Croft",
+			"is_active": true,
+			"is_staff": false,
+			"password": "pbkdf2_sha256$870000$JS24t12X8Fam5deAVgdpMn$gaUX0Y1VI1V4NYmly7Zv2DL9KoKq2A+4aOatZVH7nL8="
+		}
+	},
+	{
+        "model": "residences.blockname",
+        "pk": 1,
+        "fields": {
+            "name": "Block A",
+            "created_at": "2025-02-18T00:00:00Z",
+            "updated_at": "2025-02-18T00:00:00Z"
+        }
+    },
+    {
+        "model": "residences.blockname",
+        "pk": 2,
+        "fields": {
+            "name": "Block B",
+            "created_at": "2025-02-18T00:00:00Z",
+            "updated_at": "2025-02-18T00:00:00Z"
+        }
+    },
+	{
+        "model": "residences.residence",
+        "pk": 1,
+        "fields": {
+            "number": "101",
+            "block_name": 1,
+            "owner": 4,
+            "created_at": "2025-02-20T00:00:00Z",
+            "updated_at": "2025-02-20T00:00:00Z"
+        }
+    },
+    {
+        "model": "residences.residence",
+        "pk": 2,
+        "fields": {
+            "number": "102",
+            "block_name": 1,
+            "owner": 7,
+            "created_at": "2025-02-20T00:00:00Z",
+            "updated_at": "2025-02-20T00:00:00Z"
+        }
+    },
+	{
+        "model": "residences.residence",
+        "pk": 3,
+        "fields": {
+            "number": "201",
+            "block_name": 2,
+            "owner": 5,
+            "created_at": "2025-02-20T00:00:00Z",
+            "updated_at": "2025-02-20T00:00:00Z"
+        }
+    },
+	{
+        "model": "parkings.lot",
+        "pk": 1,
+        "fields": {
+            "name": "Lot A"
+        }
+    },
+    {
+        "model": "parkings.lot",
+        "pk": 2,
+        "fields": {
+            "name": "Lot B"
+        }
+    },
+	{
+        "model": "parkings.parking",
+        "pk": 1,
+        "fields": {
+            "number": "P1",
+            "visit_parking": false,
+            "owner": 4,
+            "lot": 1,
+            "created_at": "2025-02-20T00:00:00Z",
+            "updated_at": "2025-02-20T00:00:00Z"
+        }
+    },
+    {
+        "model": "parkings.parking",
+        "pk": 2,
+        "fields": {
+            "number": "P2",
+            "visit_parking": false,
+            "owner": 7,
+            "lot": 2,
+            "created_at": "2025-02-20T00:00:00Z",
+            "updated_at": "2025-02-20T00:00:00Z"
+        }
+    }
+]

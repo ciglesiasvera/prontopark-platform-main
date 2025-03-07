@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Eliminar Residencia</h2>
+    <p>
+        ¿Estás seguro que quieres eliminar la residencia {{ residence.number }} del bloque {{ residence.block_name.name }}?
+    </p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Confirmar Eliminación</button>
+        <a href="{% url 'residences:residence_detail' residence.id %}"
+           class="btn btn-secondary">Cancelar</a>
+    </form>
+{% endblock %}

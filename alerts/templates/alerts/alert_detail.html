@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Detalles de la Alerta</h1>
+    <p>Estacionamiento: {{ alert.parking.number }}</p>
+    <p>Descripción: {{ alert.description }}</p>
+    <p>Estado: {{ alert.status }}</p>
+    <a href="{% url 'alerts:list' %}" class="btn btn-secondary">Volver a la Lista</a>
+{% endblock %}

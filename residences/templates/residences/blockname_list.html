@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Lista Bloques</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                {% if user.role == 'supervisor' or user.role == 'admin' or user.role == 'concierge' %}
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for blockname in blocknames %}
+                <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{ blockname.name }}</td>
+                    {% if user.role == 'supervisor' or user.role == 'admin' or user.role == 'concierge' %}
+                        <td>
+                            <a href="{% url 'residences:blockname_edit' blockname.id %}"
+                               class="btn btn-warning">Editar</a>
+                        </td>
+                        <td>
+                            <a href="{% url 'residences:blockname_delete' blockname.id %}"
+                               class="btn btn-danger">Eliminar</a>
+                        </td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

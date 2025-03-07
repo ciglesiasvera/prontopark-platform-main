@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Lista de Residencias</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Número</th>
+                <th scope="col">Bloque</th>
+                <th scope="col">Propietario</th>
+                <th scope="col"></th>
+                {% if user.role == 'supervisor' or user.role == 'admin' or user.role == 'concierge' %}
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for residence in residences %}
+                <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{ residence.number }}</td>
+                    <td>{{ residence.block_name.name }}</td>
+                    <td>{{ residence.owner }}</td>
+                    <td>
+                        <a href="{% url 'residences:residence_detail' residence.id %}"
+                           class="btn btn-warning">Detalle</a>
+                    </td>
+                    {% if user.role == 'supervisor' or user.role == 'admin' or user.role == 'concierge' %}
+                        <td>
+                            <a href="{% url 'residences:residence_edit' residence.id %}"
+                               class="btn btn-warning">Editar</a>
+                        </td>
+                        <td>
+                            <a href="{% url 'residences:residence_delete' residence.id %}"
+                               class="btn btn-danger">Eliminar</a>
+                        </td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

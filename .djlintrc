@@ -1,0 +1,7 @@
+{
+	"indent": "4",
+	"format_js": false,
+	"format_css": false,
+	"blank_line_after_tag": "load,extends,include",
+	"blank_line_before_tag": "block,extends,include"
+}

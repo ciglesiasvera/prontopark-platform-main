@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Detalles de la Residencia</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Número</th>
+                <th scope="col">Bloque</th>
+                <th scope="col">Propietario</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <td>{{ residence.number }}</td>
+                <td>{{ residence.block_name.name }}</td>
+                <td>{{ residence.owner }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="{% url 'parkings:parking_list' %}" class="btn btn-secondary">Volver a la Lista</a>
+{% endblock %}

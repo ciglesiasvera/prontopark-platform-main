@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Eliminar Lote</h2>
+    <p>¿Estás seguro de que deseas eliminar el lote "{{ lot.name }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Confirmar Eliminación</button>
+        <a href="{% url 'parkings:lot_list' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+{% endblock %}

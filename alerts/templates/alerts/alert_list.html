@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Lista de Alertas</h1>
+    <ul>
+        {% for alert in alerts %}
+            <li>
+                <a href="{% url 'alerts:detail' alert.id %}">{{ alert.parking.number }}</a>
+                - {{ alert.description }}
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'alerts:create' %}" class="btn btn-primary">Crear Alerta</a>
+{% endblock %}

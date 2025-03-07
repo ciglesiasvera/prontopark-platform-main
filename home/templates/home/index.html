@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}{{ home_content.title|default:'Pronto Park - Home' }}{% endblock %}
+
+{% block content %}
+    <div class="container home-page">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1>
+                    Bienvenido a <span>ProntoPark</span>
+                </h1>
+                <p class="lead">Condominio Jorge Durand</p>
+            </div>
+        </div>
+
+        {% include "parking-lots.html" %}
+
+        <div class="air-gap-medium"></div>
+        <!-- Sección de parkings disponibles -->
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="card">
+                    <div class="card-body">
+                        <h3>Estacionamientos</h3>
+                        <p class="display-4">{{ total_parkings }}</p>
+                        <a href="{% url 'parkings:parking_list' %}" class="btn btn-primary">Listar estacionamientos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% if home_content.description %}
+            <div class="air-gap-medium"></div>
+            <h1>
+                ¿Qué es <span>ProntoPark</span>?
+            </h1>
+            <p class="lead">{{ home_content.description }}</p>
+        {% endif %}
+    </div>
+{% endblock %}

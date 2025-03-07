@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Verificar Disponibilidad</h2>
+    {% if is_available %}
+        <p>El estacionamiento está disponible en el rango de tiempo seleccionado.</p>
+    {% else %}
+        <p>El estacionamiento no está disponible en el rango de tiempo seleccionado.</p>
+    {% endif %}
+    <a href="{% url 'reservations:create' %}" class="btn btn-secondary">Volver a Solicitar Reserva</a>
+{% endblock %}

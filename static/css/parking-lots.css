@@ -1,0 +1,122 @@
+#container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: auto;
+    height: 100%;
+}
+
+#svgContainer {
+    max-width: 100%;
+    max-height: 100%;
+
+    background-image: linear-gradient(#543b68 1px, transparent 1px), linear-gradient(to right, #543b68 1px, transparent 1px);
+    background-size: 1em 1em;
+    background-color: transparent;
+}
+
+@media(orientation: landscape) {
+    #svgContainer {
+        width: auto;
+        height: 100vh;
+    }
+}
+
+@media(orientation: portrait) {
+    #svgContainer {
+        height: auto;
+        width: 100vw;
+    }
+}
+
+.controls {
+    position: absolute;
+    bottom: 0.3em;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.5);
+    padding: 0.25em;
+    border-radius: 0.3em;
+    display: flex;
+    gap: 0.3em;
+    /* box-shadow: 0 4px 7px rgba(0, 0, 0, 0.6); */
+    pointer-events: all;
+}
+
+.controls input {
+    padding: 0.2em;
+    border: 2px solid #b6b6b6;
+    border-radius: 3px;
+}
+
+.caption {
+    font-size: 37.3333px;
+    font-family: Arial;
+    font-weight: 900;
+    fill: black;
+    text-align: start;
+    writing-mode: lr-tb;
+    direction: ltr;
+    text-anchor: start;
+    stroke: white;
+    stroke-width: 7;
+}
+
+.smallcaption {
+    font-size: 27.5px;
+    font-family: Arial;
+    font-weight: 900;
+    fill: black;
+    text-align: start;
+    writing-mode: lr-tb;
+    direction: ltr;
+    text-anchor: start;
+    stroke: white;
+    stroke-width: 5;
+}
+
+.numberCaption {
+    fill: #000;
+    font-size: 20px;
+    font-weight: bold;
+    text-anchor: middle;
+    stroke: white;
+    stroke-width: 2;
+    pointer-events: none;
+}
+
+.parking {
+    fill: #b4b4b4;
+    stroke: #985bb0;
+    stroke-width: 1px;
+}
+
+rect:hover {
+    fill: #985bb0 !important;
+    stroke: black;
+    stroke-width: 2px;
+    cursor: pointer;
+    filter: drop-shadow(0 0 25px rgba(0, 255, 255, 1));
+}
+
+.highlighted {
+    fill: none !important;
+    stroke: black;
+    pointer-events: none !important;
+}
+
+#parkingId {
+    pointer-events: all;
+    width: 5em !important;
+    margin-left: 0.5em;
+}
+
+.tippy-box {
+    z-index: 99999 !important;
+    /* Asegúrate de que esté por encima de todo */
+
+    border: 1px solid black;
+}

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Reporte de Residencias</h1>
+<ul>
+    {% for residence in residences %}
+        <li>{{ residence.block_name.name }} - {{ residence.owner.username }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

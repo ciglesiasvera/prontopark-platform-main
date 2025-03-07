@@ -1,0 +1,53 @@
+{% load static %}
+
+<div id="container">
+    <div id="toolbar" class="controls" xmlns="http://www.w3.org/1999/xhtml">
+        <button class="btn btn-primary"
+                onclick="resetView()"
+                data-tippy-content="Restablece Vista">
+            <i class="bi bi-fullscreen"></i><span class="visually-hidden">Restablece Vista</span>
+        </button>
+        <button class="btn btn-primary"
+                id="fullscreenBtn"
+                onclick="enterFullScreen()"
+                data-tippy-content="Pantalla Completa">
+            <i class="bi bi-arrows-fullscreen"></i>
+            <span class="visually-hidden">Pantalla Completa</span>
+        </button>
+        <button class="btn btn-primary"
+                id="exitFullScreenBtn"
+                onclick="exitFullScreen()"
+                data-tippy-content="Sale de Pantalla Completa"
+                disabled>
+            <i class="bi bi-fullscreen-exit"></i>
+            <span class="visually-hidden">Sale de Pantalla Completa</span>
+        </button>
+        <input type="text" id="parkingId" placeholder="N&#186;">
+        <button class="btn btn-primary"
+                onclick="centerView(document.getElementById('parkingId').value.toLowerCase())"
+                data-tippy-content="Buscar Estacionamiento">
+            <i class="bi bi-search"></i>
+            <span class="visually-hidden">Buscar Estacionamiento</span>
+        </button>
+    </div>
+    <svg version="1.1"
+         id="svgContainer"
+         width="1606"
+         height="1488"
+         xmlns="http://www.w3.org/2000/svg">
+        <g id="pan-zoom-viewport">
+        <image width="1606"
+               height="1488"
+               preserveAspectRatio="none"
+               style="image-rendering:optimizeQuality"
+               xlink:href="{% static 'images/satellite-map.webp' %}"
+               id="map" />
+        <g id="parkingLots" class="parking">
+        <a id="parking-lots-link" href="{% static 'images/parking-lots.svg' %}"></a>
+        </g>
+        </g>
+    </svg>
+</div>
+<script src="{% static 'js/parking-lots.js' %}" defer></script>
+<script src="{% static 'js/hammer.min.js' %}" async defer></script>
+<script src="{% static 'js/svg-pan-zoom.min.js' %}" async defer></script>

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Reporte de Estacionamientos</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Lote</th>
+            <th>Bloque</th>
+            <th>Total de Reservas</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in parking_report %}
+            <tr>
+                <td>{{ item.parking__lot__name }}</td>
+                <td>{{ item.parking__block_name }}</td>
+                <td>{{ item.total_reservations }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

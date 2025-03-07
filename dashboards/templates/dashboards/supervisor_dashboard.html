@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard Supervisor{% endblock %}
+
+{% block content %}
+    <h2>Dashboard Supervisor</h2>
+    <div class="row">
+        <div class="col-12 col-md-4">
+            <h3>Reservas Pendientes</h3>
+            {% if pending_visit_reservations %}
+                {% for reservation in pending_visit_reservations %}
+                    <h4>Reserva {{ forloop.counter }}</h4>
+                    <ul>
+                        <li>Estacionamiento {{ reservation.parking.number }}.</li>
+                        <li>Solicitada por {{ reservation.user.first_name }} {{ reservation.user.last_name }}.</li>
+                        <li>Desde el {{ reservation.start_datetime }}</li>
+                        <li>Hasta el {{ reservation.end_datetime }}</li>
+                    </ul>
+                    <div class="btn-group d-flex justify-content-evenly">
+                        <form method="post"
+                              action="{% url 'reservations:approve_visit' reservation.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-primary">Aprobar</button>
+                        </form>
+                        <form method="post"
+                              action="{% url 'reservations:reject_visit' reservation.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger">Rechazar</button>
+                        </form>
+                    </div>
+                    <hr>
+                {% endfor %}
+            {% else %}
+                <p>No hay reservas pendientes.</p>
+            {% endif %}
+            <h3>Mis reservas</h3>
+        </div>
+        <div class="col-12 col-md-8">
+
+            {% include "calendar.html" %}
+
+        </div>
+    </div>
+{% endblock %}

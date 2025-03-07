@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Lista de Reservas</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Estacionamiento</th>
+                <th scope="col">Inicio</th>
+                <th scope="col">Término</th>
+                <th scope="col">Estado</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for reservation in reservations %}
+                <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{ reservation.parking.number }}</td>
+                    <td>{{ reservation.start_datetime }}</td>
+                    <td>{{ reservation.end_datetime }}</td>
+                    <td>{{ reservation.status }}</td>
+                    <td>
+                        <a href="{% url 'reservations:detail' reservation.id %}"
+                           class="btn btn-warning">Detalle</a>
+                    </td>
+                    <td>
+                        <a href="{% url 'reservations:cancel' reservation.id %}"
+                           class="btn btn-danger">Cancelar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'reservations:create' %}" class="btn btn-primary">Solicitar Reserva</a>
+{% endblock %}

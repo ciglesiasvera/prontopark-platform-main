@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Lista de Lotes</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                {% if user.role == 'supervisor' or user.role == 'admin' or user.role == 'concierge' %}
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for lot in lots %}
+                <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{ lot.name }}</td>
+                    {% if user.role == 'supervisor' or user.role == 'admin' or user.role == 'concierge' %}
+                        <td>
+                            <a href="{% url 'parkings:lot_edit' lot.id %}" class="btn btn-warning">Editar</a>
+                        </td>
+                        <td>
+                            <a href="{% url 'parkings:lot_delete' lot.id %}" class="btn btn-danger">Eliminar</a>
+                        </td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
